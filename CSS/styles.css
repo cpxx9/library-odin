@@ -110,19 +110,36 @@ ________________________________________ */
 ________________________________________ */
 .form-popup {
   /* display: none; */
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -40%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .book-form {
   background-color: #fff;
-  width: 90vw;
-  height: 90vh;
+  height: 90%;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-content: center;
 }
 
+.book-form>h1 {
+  margin: 0;
+  padding: 0;
+  grid-column: span 2;
+  font-size: 64px;
+}
 
+.book-form fieldset {
+  grid-column: span 2;
+}
 
 /* FOOTER
 ________________________________________ */

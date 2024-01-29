@@ -26,9 +26,9 @@ let newBookCard = document.createElement('div');
 newBookCard.classList.add('book-card');
 
 const cardGrid = document.querySelector('.book-card-area');
-const addBookBtn = document.querySelector('.add-book');
+const showFormBtn = document.querySelector('.show-form');
 const bookForm = document.querySelector('#bookForm');
-const delBookBtn = document.querySelector('.form-del-button');
+const hideFormBtn = document.querySelector('.hide-form');
 
 function Book(title, author, pages, hasRead) {
   this.title = title;  
@@ -67,5 +67,5 @@ function hideForm() {
   bookForm.style.display = 'none';
 }
 
-addBookBtn.addEventListener('click', showForm);
-delBookBtn.addEventListener('click', hideForm);
+showFormBtn.addEventListener('click', showForm);
+hideFormBtn.addEventListener('click', hideForm);

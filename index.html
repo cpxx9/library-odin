@@ -18,7 +18,7 @@
   <div class="form-popup hide" id="bookForm">
     <form action="" class="book-form">
       <h1>New book</h1>
-      <button type='button' class='btn delete-book form-del-button'>-</button>
+      <button type='button' class='btn delete-book hide-form'>-</button>
       <label class="text-label" for="bookTitle">Title</label>
       <input class="text-input" type="text"
              name="bookTitle" 
@@ -59,11 +59,12 @@
           </div>
         </div>
       </fieldset>
+      <button class="btn" type="button">ADD</button>
     </form>
   </div>
 
   <main class="main-wrapper">
-    <button class="btn add-book" type="button">NEW BOOK</button>
+    <button class="btn show-form" type="button">NEW BOOK</button>
     <div class="book-card-area"></div>
   </main>
 

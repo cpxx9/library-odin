@@ -18,9 +18,48 @@
   <main class="main-wrapper">
     <button class="add-book" type="button">NEW BOOK</button>
 
-    <form action="" class="new-book-form">
-      
-    </form>
+    <div class="form-popup" id="bookForm">
+      <form action="" class="book-form">
+        <h1>New book</h1>
+
+        <label for="bookTitle">Title</label>
+        <input type="text"
+               name="bookTitle" 
+               id="bookTitle" 
+               placeholder="Title of the book" />
+
+        <label for="bookTitle">Author</label>
+        <input type="text"
+               name="bookAuthor" 
+               id="bookAuthor" 
+               placeholder="Author of the book" />
+
+        <label for="bookTitle">Pages</label>
+        <input type="num"
+               name="bookPages" 
+               id="bookPages" 
+               placeholder="Pages in the book" />
+
+        <fieldset>
+          <legend>Have you read the book yet?</legend>
+
+          <div>
+            <label for="true">Yes I have read it</label>
+            <input type="radio" 
+                   name="hasRead" 
+                   id="true" 
+                   value="true" />
+
+            <label for="true">No I have not</label>
+            <input type="radio" 
+                   name="hasRead" 
+                   id="false" 
+                   value="false" 
+                   checked />
+          </div>
+        </fieldset>
+      </form>
+    </div>
 
     <div class="book-card-area"></div>
   </main>

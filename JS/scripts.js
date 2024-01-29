@@ -26,8 +26,9 @@ let newBookCard = document.createElement('div');
 newBookCard.classList.add('book-card');
 
 const cardGrid = document.querySelector('.book-card-area');
-const newBookBtn = document.querySelector('.add-book');
-const addBookForm = document.querySelector('.book-form');
+const addBookBtn = document.querySelector('.add-book');
+const bookForm = document.querySelector('#bookForm');
+const delBookBtn = document.querySelector('.form-del-button');
 
 function Book(title, author, pages, hasRead) {
   this.title = title;  
@@ -56,10 +57,15 @@ function displayBooks() {
   });
 }
 
-function displayForm() {
+function showForm() {
   //will uncomment when hideForm function is added
   // newBookBtn.toggleAttribute('disabled');
-  console.log(newBookBtn);
+  bookForm.style.display = 'flex';
 }
 
-newBookBtn.addEventListener('click', displayForm);
+function hideForm() {
+  bookForm.style.display = 'none';
+}
+
+addBookBtn.addEventListener('click', showForm);
+delBookBtn.addEventListener('click', hideForm);

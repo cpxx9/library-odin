@@ -65,8 +65,9 @@ ________________________________________ */
 
 .book-card-area {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  justify-items: center;
+  row-gap: 26px;
   margin-top: var(--top-pad);
 }
 

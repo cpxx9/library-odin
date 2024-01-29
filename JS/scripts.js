@@ -29,19 +29,32 @@ const cardGrid = document.querySelector('.book-card-area');
 const showFormBtn = document.querySelector('.show-form');
 const bookForm = document.querySelector('#bookForm');
 const hideFormBtn = document.querySelector('.hide-form');
+const addBookBtn = document.querySelector('.add-book');
+const formInputs = document.querySelectorAll('#bookForm input');
 
 function Book(title, author, pages, hasRead) {
-  this.title = title;  
-  this.author = author;  
+  this.title = title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());  
+  this.author = author.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());  
   this.pages = pages;  
   this.hasRead = hasRead;
-  this.info = function() {
-    return `${this.title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())} by ${this.author.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}, ${this.pages} pages, ${this.hasRead ? "has been read" : "not read yet"}`;
-  };
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(event) {
+  console.log(event);
+  let readOrNot = false;
+  if(event.target[5].checked) {
+    readOrNot = true;
+    console.log(readOrNot, "true");
+  } else {
+    readOrNot = false;
+    console.log(readOrNot, "false");
+  }
+  let newBook = new Book(event.target[1].value, event.target[2].value, event.target[4].value, readOrNot);
+  myLibrary.push(newBook);
+  
+  displayBooks();
 
+  event.preventDefault();
 }
 
 function displayBooks() {
@@ -58,8 +71,6 @@ function displayBooks() {
 }
 
 function showForm() {
-  //will uncomment when hideForm function is added
-  // newBookBtn.toggleAttribute('disabled');
   bookForm.style.display = 'flex';
 }
 
@@ -69,3 +80,4 @@ function hideForm() {
 
 showFormBtn.addEventListener('click', showForm);
 hideFormBtn.addEventListener('click', hideForm);
+bookForm.addEventListener('submit', addBookToLibrary);

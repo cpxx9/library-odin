@@ -106,6 +106,24 @@ ________________________________________ */
   padding: 10px;
 }
 
+/* Form
+________________________________________ */
+.form-popup {
+  /* display: none; */
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+
+.book-form {
+  background-color: #fff;
+  width: 90vw;
+  height: 90vh;
+}
+
+
+
 /* FOOTER
 ________________________________________ */
 

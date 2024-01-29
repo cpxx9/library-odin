@@ -1,3 +1,23 @@
+/* VARIABLES
+________________________________________ */
+:root {
+  /* Grays */
+  --gray-1: #fafaf9;
+  --gray-2: #e7e5e4;
+  --gray-3: #292524;
+  --gray-4: #1c1917;
+  --gray-m: #78716c;
+
+  /* Color Palettes */
+  --main-orange: #ED7D31;
+
+  /* Shadows */
+  --bottom-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Global Styles
+________________________________________ */
 html,
 body {
   padding: 0;
@@ -5,10 +25,13 @@ body {
 }
 
 body{
-	background-color: #f4f4f4;
-	color: #555;
+	background-color: var(--gray-2);
+	color: var(--gray-m);
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 a {
@@ -20,6 +43,23 @@ a:hover {
 	text-decoration: none;
 }
 
+/* HEADER
+________________________________________ */
+.header-wrapper {
+  background-color: var(--gray-3);
+  padding-left: 5vw;
+  color: #ED7D31;
+}
+
+/* MAIN CONTENT
+________________________________________ */
+main  {
+  flex: 1;
+}
+
+/* FOOTER
+________________________________________ */
+
 footer a {
 	color: #bcaa96;
 }
@@ -29,14 +69,10 @@ footer a:hover {
 }
 
 footer {
-	background: #222;
+	background: var(--gray-3);
 	color: #d3d4d6;
 	padding: 0 20px;
 }
-
-/* footer p {
-	padding: 8px 0;
-} */
 
 .socials {
 	list-style-type: none;

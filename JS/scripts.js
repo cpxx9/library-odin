@@ -49,8 +49,14 @@ function addBookToLibrary(event) {
     readOrNot = false;
     console.log(readOrNot, "false");
   }
-  let newBook = new Book(event.target[1].value, event.target[2].value, event.target[4].value, readOrNot);
+  let newBook = new Book(event.target[1].value, event.target[2].value, event.target[3].value, readOrNot);
   myLibrary.push(newBook);
+
+  event.target[1].value = ''; 
+  event.target[2].value = '';
+  event.target[3].value = '';
+  event.target[5].checked = false;
+  event.target[6].checked = true;
   
   displayBooks();
 

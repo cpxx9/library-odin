@@ -1,3 +1,6 @@
+let tempLibrary = [];
+let myLibrary = [];
+let libraryIndex = 0;
 // let test = new Book("hobbit", "jrr tolkien", "290", false);
 // let test2 = new Book("potter", "jk rowling", "400", true);
 // let test3 = new Book("potter", "jk rowling", "400", true);
@@ -10,20 +13,17 @@
 // let test10 = new Book("potter", "jk rowling", "400", true);
 // let test11 = new Book("potter", "jk rowling", "400", true);
 
-// myLibrary.push(test);
-// myLibrary.push(test2);
-// myLibrary.push(test3);
-// myLibrary.push(test4);
-// myLibrary.push(test5);
-// myLibrary.push(test6);
-// myLibrary.push(test7);
-// myLibrary.push(test8);
-// myLibrary.push(test9);
-// myLibrary.push(test10);
-// myLibrary.push(test11);
-const myLibrary = [];
-let newBookCard = document.createElement('div');
-newBookCard.classList.add('book-card');
+// tempLibrary.push(test);
+// tempLibrary.push(test2);
+// tempLibrary.push(test3);
+// tempLibrary.push(test4);
+// tempLibrary.push(test5);
+// tempLibrary.push(test6);
+// tempLibrary.push(test7);
+// tempLibrary.push(test8);
+// tempLibrary.push(test9);
+// tempLibrary.push(test10);
+// tempLibrary.push(test11);
 
 const cardGrid = document.querySelector('.book-card-area');
 const showFormBtn = document.querySelector('.show-form');
@@ -39,39 +39,65 @@ function Book(title, author, pages, hasRead) {
   this.hasRead = hasRead;
 }
 
-function addBookToLibrary(event) {
-  console.log(event);
+function createBook(event) {
   let readOrNot = false;
   if(event.target[5].checked) {
     readOrNot = true;
-    console.log(readOrNot, "true");
   } else {
     readOrNot = false;
-    console.log(readOrNot, "false");
   }
   let newBook = new Book(event.target[1].value, event.target[2].value, event.target[3].value, readOrNot);
-  myLibrary.push(newBook);
+  tempLibrary.push(newBook);
+  
+  displayBooks();
+  tempLibrary.forEach((book) => {
+    myLibrary.push(book);
+  });
+  tempLibrary = [];
 
   event.target[1].value = ''; 
   event.target[2].value = '';
   event.target[3].value = '';
   event.target[5].checked = false;
   event.target[6].checked = true;
-  
-  displayBooks();
+  event.target[7].textContent = 'Add another?';
 
   event.preventDefault();
 }
 
+function deleteBook(event) {
+  console.log(event);
+}
+
+function toggleHasRead(event) {
+  console.log(event);
+}
+
 function displayBooks() {
-  myLibrary.forEach((book) => {
+  tempLibrary.forEach((book) => {    
+    let toggleHasReadBtn = document.createElement('button');
+    toggleHasReadBtn.classList.add('btn', 'change-hasRead');
+    toggleHasReadBtn.type = 'button';
+    toggleHasReadBtn.textContent = 'Toggle whether you have read this book';
+    toggleHasReadBtn.dataset.index = libraryIndex;
+    toggleHasReadBtn.onclick = toggleHasRead;
+
+    let deleteBookBtn = document.createElement('button');
+    deleteBookBtn.classList.add('btn', 'delete-book');
+    deleteBookBtn.type = 'button';
+    deleteBookBtn.textContent = '-';
+    deleteBookBtn.dataset.index = libraryIndex;
+    toggleHasReadBtn.onclick = deleteBook;
+
+    let newBookCard = document.createElement('div');
+    newBookCard.classList.add('book-card');
     newBookCard.innerHTML = `<h2>${book.title}</h2>
-                              <h3>${book.author}</h3>
-                              <h4>${book.pages}</h4>
-                              <p>${book.hasRead ? "You have read this" : "You have not read this"}</p>
-                              <button type='button' class='btn change-hasRead'>Toggle whether you have read this book</button>
-                              <button type='button' class='btn delete-book'>-</button>`;
-    
+                             <h3>${book.author}</h3>
+                             <h4>${book.pages}</h4>
+                             <p>${book.hasRead ? "You have read this" : "You have not read this"}</p>`;
+    newBookCard.appendChild(toggleHasReadBtn);
+    newBookCard.appendChild(deleteBookBtn);
+    libraryIndex++;
     cardGrid.appendChild(newBookCard);
   });
 }
@@ -86,4 +112,4 @@ function hideForm() {
 
 showFormBtn.addEventListener('click', showForm);
 hideFormBtn.addEventListener('click', hideForm);
-bookForm.addEventListener('submit', addBookToLibrary);
+bookForm.addEventListener('submit', createBook);

@@ -14,6 +14,10 @@ ________________________________________ */
   /* Shadows */
   --bottom-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  /* Padding */
+  --left-pad: 2.5vw;
+  --top-pad: 1.5vh;
 }
 
 /* Global Styles
@@ -47,20 +51,59 @@ a:hover {
 ________________________________________ */
 .header-wrapper {
   background-color: var(--gray-3);
-  padding-left: 5vw;
+  padding-left: var(--left-pad);
   color: #ED7D31;
 }
 
 /* MAIN CONTENT
 ________________________________________ */
-main  {
+.main-wrapper  {
   flex: 1;
+  margin: var(--left-pad);
+  margin-top: var(--top-pad);
+}
+
+.book-card-area {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  margin-top: var(--top-pad);
 }
 
 .book-card {
-  
+  background-color: #fff;
+  width: 200px;
+  height: 250px;
+  border-radius: 5px;
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.book-card * {
+  margin: 0;
+  padding: 0;
+}
+
+.book-card h2 {
+  font-size: 2.1rem;
+}
+
+.book-card h3 {
+  font-size: 1.4rem;
+}
+
+.book-card h4 {
+  font-size: 1.1rem;
+}
+
+.book-card p {
+  font-size: 1.2rem;
+  flex: 1;
+  background-color: var(--gray-2);
+  border-radius: 4px;
+  padding: 10px;
 }
 
 /* FOOTER

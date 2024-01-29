@@ -2,9 +2,7 @@ const myLibrary = [];
 let test = new Book("hobbit", "jrr tolkien", "290", false);
 
 myLibrary.push(test);
-const cardGrid = document.querySelector('.main-wrapper');
-
-console.log(cardGrid);
+const cardGrid = document.querySelector('.book-card-area');
 
 function Book(title, author, pages, hasRead) {
   this.title = title;  

@@ -23,7 +23,11 @@
 // myLibrary.push(test11);
 const myLibrary = [];
 let newBookCard = document.createElement('div');
+newBookCard.classList.add('book-card');
+
 const cardGrid = document.querySelector('.book-card-area');
+const newBookBtn = document.querySelector('.add-book');
+const addBookForm = document.querySelector('.book-form');
 
 function Book(title, author, pages, hasRead) {
   this.title = title;  
@@ -47,7 +51,15 @@ function displayBooks() {
                               <p>${book.hasRead ? "You have read this" : "You have not read this"}</p>
                               <button type='button' class='btn change-hasRead'>Toggle whether you have read this book</button>
                               <button type='button' class='btn delete-book'>-</button>`;
-    newBookCard.classList.add('book-card');
+    
     cardGrid.appendChild(newBookCard);
   });
 }
+
+function displayForm() {
+  //will uncomment when hideForm function is added
+  // newBookBtn.toggleAttribute('disabled');
+  console.log(newBookBtn);
+}
+
+newBookBtn.addEventListener('click', displayForm);

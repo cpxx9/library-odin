@@ -91,6 +91,11 @@ ________________________________________ */
 
 .btn.add-book {
   font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.btn.add-book:disabled {
+  cursor: default;
 }
 
 .btn.change-hasRead {

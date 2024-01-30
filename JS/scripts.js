@@ -65,14 +65,6 @@ function createBook(event) {
   event.preventDefault();
 }
 
-function deleteBook(event) {
-  console.log(event);
-}
-
-function toggleHasRead(event) {
-  console.log(event);
-}
-
 function displayBooks() {
   tempLibrary.forEach((book) => {    
     let toggleHasReadBtn = document.createElement('button');
@@ -80,14 +72,12 @@ function displayBooks() {
     toggleHasReadBtn.type = 'button';
     toggleHasReadBtn.textContent = 'Toggle whether you have read this book';
     toggleHasReadBtn.dataset.index = libraryIndex;
-    toggleHasReadBtn.onclick = toggleHasRead;
 
     let deleteBookBtn = document.createElement('button');
     deleteBookBtn.classList.add('btn', 'delete-book');
     deleteBookBtn.type = 'button';
     deleteBookBtn.textContent = '-';
     deleteBookBtn.dataset.index = libraryIndex;
-    toggleHasReadBtn.onclick = deleteBook;
 
     let newBookCard = document.createElement('div');
     newBookCard.classList.add('book-card');

@@ -1,29 +1,6 @@
 let tempLibrary = [];
 let myLibrary = [];
 let libraryIndex = 0;
-// let test = new Book("hobbit", "jrr tolkien", "290", false);
-// let test2 = new Book("potter", "jk rowling", "400", true);
-// let test3 = new Book("potter", "jk rowling", "400", true);
-// let test4 = new Book("potter", "jk rowling", "400", true);
-// let test5 = new Book("potter", "jk rowling", "400", true);
-// let test6 = new Book("potter", "jk rowling", "400", true);
-// let test7 = new Book("potter", "jk rowling", "400", true);
-// let test8 = new Book("potter", "jk rowling", "400", true);
-// let test9 = new Book("potter", "jk rowling", "400", true);
-// let test10 = new Book("potter", "jk rowling", "400", true);
-// let test11 = new Book("potter", "jk rowling", "400", true);
-
-// tempLibrary.push(test);
-// tempLibrary.push(test2);
-// tempLibrary.push(test3);
-// tempLibrary.push(test4);
-// tempLibrary.push(test5);
-// tempLibrary.push(test6);
-// tempLibrary.push(test7);
-// tempLibrary.push(test8);
-// tempLibrary.push(test9);
-// tempLibrary.push(test10);
-// tempLibrary.push(test11);
 
 const cardGrid = document.querySelector('.book-card-area');
 const showFormBtn = document.querySelector('.show-form');
@@ -37,16 +14,19 @@ function Book(title, author, pages, hasRead) {
   this.author = author.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());  
   this.pages = pages;  
   this.hasRead = hasRead;
+  this.changeHasRead = function() {
+    this.hasRead = !this.hasRead;
+  };
 }
 
-function createBook(event) {
+function createBook(e) {
   let readOrNot = false;
-  if(event.target[5].checked) {
+  if(e.target[5].checked) {
     readOrNot = true;
   } else {
     readOrNot = false;
   }
-  let newBook = new Book(event.target[1].value, event.target[2].value, event.target[3].value, readOrNot);
+  let newBook = new Book(e.target[1].value, e.target[2].value, e.target[3].value, readOrNot);
   tempLibrary.push(newBook);
   
   displayBooks();
@@ -55,14 +35,14 @@ function createBook(event) {
   });
   tempLibrary = [];
 
-  event.target[1].value = ''; 
-  event.target[2].value = '';
-  event.target[3].value = '';
-  event.target[5].checked = false;
-  event.target[6].checked = true;
-  event.target[7].textContent = 'Add another?';
+  e.target[1].value = ''; 
+  e.target[2].value = '';
+  e.target[3].value = '';
+  e.target[5].checked = false;
+  e.target[6].checked = true;
+  e.target[7].textContent = 'Add another?';
 
-  event.preventDefault();
+  e.preventDefault();
 }
 
 function displayBooks() {
@@ -74,7 +54,7 @@ function displayBooks() {
     toggleHasReadBtn.dataset.index = libraryIndex;
 
     let deleteBookBtn = document.createElement('button');
-    deleteBookBtn.classList.add('btn', 'delete-book');
+    deleteBookBtn.classList.add('btn', 'delete-book', 'deleteBook');
     deleteBookBtn.type = 'button';
     deleteBookBtn.textContent = '-';
     deleteBookBtn.dataset.index = libraryIndex;
@@ -87,8 +67,19 @@ function displayBooks() {
                              <p>${book.hasRead ? "You have read this" : "You have not read this"}</p>`;
     newBookCard.appendChild(toggleHasReadBtn);
     newBookCard.appendChild(deleteBookBtn);
+    newBookCard.dataset.index = libraryIndex;
     libraryIndex++;
     cardGrid.appendChild(newBookCard);
+  });
+}
+
+function deleteBook(index) {
+  myLibrary.splice(index, 1);
+  let currentBooks = document.querySelectorAll('.book-card');
+  currentBooks.forEach((currentBook) => {
+    if(currentBook.dataset.index === index) {
+      currentBook.remove();
+    }
   });
 }
 
@@ -103,3 +94,26 @@ function hideForm() {
 showFormBtn.addEventListener('click', showForm);
 hideFormBtn.addEventListener('click', hideForm);
 bookForm.addEventListener('submit', createBook);
+
+document.addEventListener('click', function(e) {
+  if(hasClass(e.target, 'deleteBook')) {
+    deleteBook(e.target.dataset.index);
+  } else if(hasClass(e.target, 'change-hasRead')) {
+    myLibrary[e.target.dataset.index].changeHasRead();
+    const currentBooks = document.querySelectorAll('.book-card');
+    currentBooks.forEach((currentBook) => {
+      testString = currentBook.querySelector('p');
+      if(currentBook.dataset.index === e.target.dataset.index) {
+        if (testString.textContent === 'You have read this') {
+          testString.textContent = 'You have not read this';
+        } else {
+          testString.textContent = 'You have read this';
+        }        
+      }
+    });
+  }
+});
+
+function hasClass(elem, className) {
+  return elem.className.split(' ').indexOf(className) > -1;
+}

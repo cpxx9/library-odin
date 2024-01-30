@@ -155,6 +155,48 @@ ________________________________________ */
   padding: 10px;
 }
 
+@media screen and (max-width:400px) {
+  .main-wrapper .btn.show-form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .btn.change-hasRead {
+    font-size: .9rem;
+  }
+
+  .book-card {
+    width: 300px;
+  }
+
+  .btn.delete-book {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media screen and (min-width:401px) and (max-width:500px) {
+  .main-wrapper .btn.show-form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+  }
+
+  .btn.change-hasRead {
+    font-size: 1.1rem;
+  }
+
+  .book-card {
+    width: 350px;
+    height: 400px;
+  }
+
+  .btn.delete-book {
+    width: 45px;
+    height: 45px;
+  }
+}
+
 /* Form
 ________________________________________ */
 .form-popup.hide {
@@ -237,6 +279,66 @@ button.btn.add-book {
   font-size: 1.2rem;
 }
 
+@media screen and (max-width:400px) {
+  form.book-form,
+  form.book-form *,
+  form.book-form > * {
+    display: inline-block;
+  }
+
+  form.book-form#bookForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 15px;
+  }
+
+  form.book-form#bookForm h1 {
+    margin-bottom: 10px;
+  }
+
+  form.book-form#bookForm .add-book {
+    margin: 0;
+  }
+
+  .book-form fieldset {
+    width: auto;
+  }
+}
+
+@media screen and (min-width:401px) and (max-width:500px) {
+  form.book-form,
+  form.book-form *,
+  form.book-form > * {
+    display: inline-block;
+  }
+
+  form.book-form#bookForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    padding: 0 15px;
+  }
+
+  form.book-form#bookForm h1 {
+    margin-bottom: 10px;
+  }
+
+  form.book-form#bookForm .add-book {
+    margin: 0;
+  }
+
+  .book-form fieldset {
+    width: auto;
+  }
+
+  .book-form .text-input {
+    align-self: center;
+  }
+}
+
 /* FOOTER
 ________________________________________ */
 
@@ -287,4 +389,10 @@ footer {
 		text-align: center;
 		padding: 10px;
 	}
+
+  footer p,
+  footer ul {
+    padding: 0;
+    margin: 2px;
+  }
 }

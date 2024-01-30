@@ -81,6 +81,7 @@ function deleteBook(index) {
       currentBook.remove();
     }
   });
+  libraryIndex--;
 }
 
 function showForm() {
@@ -89,6 +90,7 @@ function showForm() {
 
 function hideForm() {
   bookForm.style.display = 'none';
+  addBookBtn.textContent = 'ADD';
 }
 
 showFormBtn.addEventListener('click', showForm);

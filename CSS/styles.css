@@ -121,7 +121,7 @@ ________________________________________ */
   background-color: #fff;
   position: relative;
   width: 200px;
-  height: 250px;
+  height: 300px;
   border-radius: 5px;
   padding: 15px 15px;
   display: flex;
@@ -136,6 +136,7 @@ ________________________________________ */
 
 .book-card h2 {
   font-size: 2.1rem;
+  padding-top: 30px;
 }
 
 .book-card h3 {
@@ -212,6 +213,7 @@ ________________________________________ */
   margin: 0;
   padding: 0;
   width: 500px;
+  text-align: center;
 }
 
 .book-form legend {
@@ -226,8 +228,13 @@ ________________________________________ */
 
 .hasRead-options {
   display: flex;
+  justify-content: center;
   gap: 16px;
-  justify-content: end;
+}
+
+button.btn.add-book {
+  grid-column: span 2;
+  font-size: 1.2rem;
 }
 
 /* FOOTER

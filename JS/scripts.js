@@ -14,10 +14,11 @@ function Book(title, author, pages, hasRead) {
   this.author = author.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());  
   this.pages = pages;  
   this.hasRead = hasRead;
-  this.changeHasRead = function() {
-    this.hasRead = !this.hasRead;
-  };
 }
+
+Book.prototype.changeHasRead = function() {
+  this.hasRead = !this.hasRead;
+};
 
 function createBook(e) {
   let readOrNot = false;

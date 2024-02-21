@@ -9,16 +9,18 @@ const hideFormBtn = document.querySelector('.hide-form');
 const addBookBtn = document.querySelector('.add-book');
 const formInputs = document.querySelectorAll('#bookForm input');
 
-function Book(title, author, pages, hasRead) {
-  this.title = title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());  
-  this.author = author.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());  
-  this.pages = pages;  
-  this.hasRead = hasRead;
+class Book {
+  constructor(title, author, pages, hasRead) {
+    this.title = title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+    this.author = author.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+    this.pages = pages;
+    this.hasRead = hasRead;
+  }
+  changeHasRead() {
+    this.hasRead = !this.hasRead;
+  }
 }
 
-Book.prototype.changeHasRead = function() {
-  this.hasRead = !this.hasRead;
-};
 
 function createBook(e) {
   let readOrNot = false;

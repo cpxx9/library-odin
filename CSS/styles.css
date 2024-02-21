@@ -132,6 +132,7 @@ ________________________________________ */
 .book-card * {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .book-card h2 {

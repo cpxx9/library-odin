@@ -17,6 +17,11 @@ const titleError = document.querySelector("#titleError");
 const authorError = document.querySelector("#authorError");
 const pagesError = document.querySelector("#pagesError");
 
+if (localStorage.getItem("books") !== null) {
+  tempLibrary = JSON.parse(localStorage.getItem("books"));
+  displayBooks();
+}
+
 bookTitleV.addEventListener("input", (e) => {
   if (bookTitleV.validity.valid) {
     titleError.textContent = "";
@@ -104,6 +109,16 @@ function createBook(e) {
     readOrNot
   );
   tempLibrary.push(newBook);
+
+  if (localStorage.getItem("books") !== null) {
+    let oldData = JSON.parse(localStorage.getItem("books"));
+    oldData.push(newBook);
+    localStorage.setItem("books", JSON.stringify(oldData));
+  } else {
+    let data = [];
+    data.push(newBook);
+    localStorage.setItem("books", JSON.stringify(data));
+  }
 
   displayBooks();
   tempLibrary.forEach((book) => {

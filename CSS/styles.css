@@ -9,11 +9,13 @@ ________________________________________ */
   --gray-m: #78716c;
 
   /* Color Palettes */
-  --main-orange: #ED7D31;
+  --main-orange: #ed7d31;
 
   /* Shadows */
-  --bottom-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --bottom-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
 
   /* Padding */
   --left-pad: 2.5vw;
@@ -31,23 +33,23 @@ body {
   margin: 0;
 }
 
-body{
-	background-color: var(--gray-2);
-	color: var(--gray-m);
-	font-family: Arial, Helvetica, sans-serif;
-	margin: 0;
+body {
+  background-color: var(--gray-2);
+  color: var(--gray-m);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
 a {
-	color: #3c8453;
+  color: #3c8453;
 }
 
 a:hover {
-	color: #bcaa96;
-	text-decoration: none;
+  color: #bcaa96;
+  text-decoration: none;
 }
 
 /* HEADER
@@ -55,7 +57,7 @@ ________________________________________ */
 .header-wrapper {
   background-color: var(--gray-3);
   padding-left: var(--left-pad);
-  color: #ED7D31;
+  color: #ed7d31;
 }
 
 .header-wrapper h1 {
@@ -65,7 +67,7 @@ ________________________________________ */
 
 /* MAIN CONTENT
 ________________________________________ */
-.main-wrapper  {
+.main-wrapper {
   flex: 1;
   margin: var(--left-pad);
   margin-top: var(--top-pad);
@@ -156,14 +158,14 @@ ________________________________________ */
   padding: 10px;
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width: 400px) {
   .main-wrapper .btn.show-form {
     margin-top: 10px;
     margin-bottom: 10px;
   }
 
   .btn.change-hasRead {
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 
   .book-card {
@@ -176,7 +178,7 @@ ________________________________________ */
   }
 }
 
-@media screen and (min-width:401px) and (max-width:500px) {
+@media screen and (min-width: 401px) and (max-width: 500px) {
   .main-wrapper .btn.show-form {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -219,12 +221,11 @@ ________________________________________ */
   background-color: #fff;
   height: 90%;
   width: 90%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 16px;
-  row-gap: 32px;
-  justify-items: center;
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
   border-radius: 8px;
   box-shadow: var(--card-shadow);
   position: relative;
@@ -234,7 +235,7 @@ ________________________________________ */
   top: 15px;
 }
 
-.book-form>h1 {
+.book-form > h1 {
   margin: 0;
   padding: 0;
   grid-column: span 2;
@@ -280,7 +281,25 @@ button.btn.add-book {
   font-size: 1.2rem;
 }
 
-@media screen and (max-width:400px) {
+.form-item {
+  display: flex;
+  gap: 16px;
+}
+
+.error {
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+}
+
+.error.active {
+  padding: 0.5em;
+}
+
+@media screen and (max-width: 400px) {
   form.book-form,
   form.book-form *,
   form.book-form > * {
@@ -308,7 +327,7 @@ button.btn.add-book {
   }
 }
 
-@media screen and (min-width:401px) and (max-width:500px) {
+@media screen and (min-width: 401px) and (max-width: 500px) {
   form.book-form,
   form.book-form *,
   form.book-form > * {
@@ -344,52 +363,52 @@ button.btn.add-book {
 ________________________________________ */
 
 footer a {
-	color: #bcaa96;
+  color: #bcaa96;
 }
 
 footer a:hover {
-	color: #3c8453;
+  color: #3c8453;
 }
 
 footer {
-	background: var(--gray-3);
-	color: #d3d4d6;
-	padding: 0 20px;
+  background: var(--gray-3);
+  color: #d3d4d6;
+  padding: 0 20px;
 }
 
 .socials {
-	list-style-type: none;
-	padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .socials li {
-	align-self: center;
-	display: inline-block;
-	margin-left: 10px;
-	padding-top: 6px;
+  align-self: center;
+  display: inline-block;
+  margin-left: 10px;
+  padding-top: 6px;
 }
 
 .socials img {
-	width: 32px;
+  width: 32px;
 }
 
 .socials img:hover {
-	opacity: 0.5;
+  opacity: 0.5;
 }
 
-@media screen and (min-width:560px) {
-	footer {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
+@media screen and (min-width: 560px) {
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
-@media screen and (max-width:559px) {
-	footer {
-		text-align: center;
-		padding: 10px;
-	}
+@media screen and (max-width: 559px) {
+  footer {
+    text-align: center;
+    padding: 10px;
+  }
 
   footer p,
   footer ul {

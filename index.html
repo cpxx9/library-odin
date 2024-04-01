@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Library</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' href='CSS/styles.css'>
-    <script src='JS/scripts.js' defer></script>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Library</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' href='CSS/styles.css'>
+  <script src='JS/scripts.js' defer></script>
 </head>
+
 <body>
   <header class="header-wrapper">
     <div class="header-item">
@@ -24,71 +26,63 @@
     <form method="get" class="book-form" id="bookForm">
       <h1>New book</h1>
       <button type='button' class='btn delete-book hide-form'>-</button>
-      <label class="text-label" for="bookTitle">Title</label>
-      <input class="text-input" 
-             type="text"
-             required
-             name="bookTitle" 
-             id="bookTitle" 
-             placeholder="Title of the book" />
-
-      <label class="text-label" for="bookAuthor">Author</label>
-      <input class="text-input" 
-             type="text"
-             required
-             name="bookAuthor" 
-             id="bookAuthor" 
-             placeholder="Author of the book" />
-
-      <label class="text-label" for="bookPages">Pages</label>
-      <input class="text-input" 
-             type="number"
-             required
-             name="bookPages" 
-             id="bookPages" 
-             placeholder="Pages in the book" />
-
+      <div class="form-item">
+        <label class="text-label" for="bookTitle">Title</label>
+        <input class="text-input" minlength="3" type="text" required name="bookTitle" id="bookTitle"
+          placeholder="Title of the book" />
+      </div>
+      <span id="titleError" class="error"></span>
+      <div class="form-item">
+        <label class="text-label" for="bookAuthor">Author</label>
+        <input class="text-input" type="text" required name="bookAuthor" id="bookAuthor"
+          placeholder="Author of the book" />
+      </div>
+      <span id="authorError" class="error"></span>
+      <div class="form-item">
+        <label class="text-label" for="bookPages">Pages</label>
+        <input class="text-input" type="number" required name="bookPages" min="20" id="bookPages"
+          placeholder="Pages in the book" />
+      </div>
+      <span id="pagesError" class="error"></span>
       <fieldset>
         <legend>Have you read the book yet?</legend>
 
         <div class="hasRead-options">
           <div>
             <label class="radio-label" for="true">Yes I have read it</label>
-            <input type="radio"
-                   name="hasRead"
-                   id="true"
-                   value="true" />
+            <input type="radio" name="hasRead" id="true" required value="true" />
           </div>
 
           <div>
             <label class="radio-label" for="true">No I have not</label>
-            <input type="radio"
-                   name="hasRead"
-                   id="false"
-                   value="false"
-                   checked />
+            <input type="radio" name="hasRead" id="false" value="false" checked />
           </div>
         </div>
+        <span id="hasReadError" class="error"></span>
       </fieldset>
       <button class="btn add-book" type="submit">ADD</button>
     </form>
   </div>
 
   <!-- Footer -->
-	<footer>
-		<p>© 2023 by Cole Pratte | <a href="mailto:prattecole@gmail.com">prattecole@gmail.com</a></p>
-  
-		<ul class="socials">
-		  <li>
-			<a href="https://www.linkedin.com/in/cole-pratte" target="_blank" rel="noopener noreferrer"><img src="img/icon-logo-linkedin.png" alt="My LinkedIn profile"></a>
-		  </li>
-		  <li>
-			<a href="" target="_blank" rel="noopener noreferrer"><img src="img/icon-logo-github.png" alt="My Github homepage"></a>
-		  </li>
-		  <li>
-			<a href="https://www.instagram.com/colepratte9" target="_blank" rel="noopener noreferrer"><img src="img/icon-logo-instagram.png" alt="My Instagram"></a>
-		  </li>
-		</ul>
-	  </footer>
+  <footer>
+    <p>© 2023 by Cole Pratte | <a href="mailto:prattecole@gmail.com">prattecole@gmail.com</a></p>
+
+    <ul class="socials">
+      <li>
+        <a href="https://www.linkedin.com/in/cole-pratte" target="_blank" rel="noopener noreferrer"><img
+            src="img/icon-logo-linkedin.png" alt="My LinkedIn profile"></a>
+      </li>
+      <li>
+        <a href="" target="_blank" rel="noopener noreferrer"><img src="img/icon-logo-github.png"
+            alt="My Github homepage"></a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/colepratte9" target="_blank" rel="noopener noreferrer"><img
+            src="img/icon-logo-instagram.png" alt="My Instagram"></a>
+      </li>
+    </ul>
+  </footer>
 </body>
+
 </html>
